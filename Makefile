@@ -5,20 +5,18 @@ ORIGINALFOLDER=./original-data/ipinyou.contest.dataset
 TRAIN=$(ORIGINALFOLDER)/train
 TEST=$(ORIGINALFOLDER)/test
 
-all: init clk train.log test.log advertisers yzx
+#all: init clk train.log test.log advertisers yzx
+all: clk train.log test.log advertisers yzx
 
 init: $(ORIGINALFOLDER)
 	mkdir -p $(TRAIN)
 	cp $(ORIGINALFOLDER)/training2nd/imp.*.bz2 $(TRAIN)
 	cp $(ORIGINALFOLDER)/training2nd/clk.*.bz2 $(TRAIN)
-	cp $(ORIGINALFOLDER)/training3rd/imp.*.bz2 $(TRAIN)
-	cp $(ORIGINALFOLDER)/training3rd/clk.*.bz2 $(TRAIN)
-	bzip2 -d $(TRAIN)/*
+	bzip2 -dk $(TRAIN)/*
 	mkdir -p $(TEST)
 	cp $(ORIGINALFOLDER)/testing2nd/* $(TEST)
-	cp $(ORIGINALFOLDER)/testing3rd/* $(TEST)
-	bzip2 -d $(TEST)/*
-	mkdir $(BASE)/all	
+	bzip2 -dk $(TEST)/*
+	mkdir -p $(BASE)/all	
 
 clk: $(TRAIN)
 	cat $(TRAIN)/clk*.txt > $(BASE)/all/clk.all.txt

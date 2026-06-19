@@ -1,12 +1,22 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import sys
 from datetime import date
 
+sys.stdin.reconfigure(encoding='utf-8', errors='ignore')
+sys.stdout.reconfigure(encoding='utf-8')
+
 if len(sys.argv) < 2:
-    print 'Usage: schema '
+    print('Usage: schema ')
     exit(-1)
 
-schema = [ s.strip() for s in open(sys.argv[1]).read().split() ]
+schema = [
+    s.strip()
+    for s in open(
+        sys.argv[1],
+        encoding='utf-8',
+        errors='ignore'
+    ).read().split()
+]
 schema+= [ 'nclick', 'nconversation' ]
 
 tindex = schema.index('timestamp')

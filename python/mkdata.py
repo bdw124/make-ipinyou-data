@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import sys
 from datetime import date
 
 if len(sys.argv) < 3:
-    print 'Usage: schema clickfiles'
+    print('Usage: schema clickfiles')
     exit(-1)
 
 schema = [ s.strip() for s in open(sys.argv[1]).read().split() ]
@@ -14,7 +14,9 @@ cindex = schema.index('creative')
 bmap = {}
 for fn in sys.argv[2:]:
     lcnt = 0
-    for l in open(fn):
+    # for l in open(fn):
+    # ben amended line:
+    for l in open(fn, encoding='utf-8', errors='ignore'):
         arr = l.split('\t')
         bid = arr[0] +'-'+ arr[cindex]
         bmap[bid] = lcnt

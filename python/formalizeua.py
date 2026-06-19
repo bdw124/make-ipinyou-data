@@ -1,21 +1,22 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import sys
 import os
 
 if len(sys.argv) < 2:
-    print 'Usage: input'
+    print('Usage: input')
     exit(-1)
 
 
 oses = ["windows", "ios", "mac", "android", "linux"]
 browsers = ["chrome", "sogou", "maxthon", "safari", "firefox", "theworld", "opera", "ie"]
 
-fi = open(sys.argv[1], 'r')
+fi = open(sys.argv[1], 'r', encoding='utf-8', errors='ignore')
 outname = sys.argv[1] + ".fmua"
-fo = open(outname, 'w')
+fo = open(outname, 'w', encoding='utf-8')
 
 first = True
-for l in fi:
+for l in fi:   
+#for l in open(fi, encoding='utf-8', errors='ignore'):
     if first:
         fo.write(l)
         first = False
@@ -43,5 +44,6 @@ for l in fi:
             output = output + '\t' + s[i]
     fo.write(output)
 fo.close()
+fi.close()
 
-os.rename(outname, sys.argv[1])
+os.replace(outname, sys.argv[1])
