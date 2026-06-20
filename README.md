@@ -6,12 +6,15 @@ This project is to formalise the iPinYou RTB data into a standard format for fur
 ### Step 0
 The raw data of iPinYou (`ipinyou.contest.dataset.zip`) can be downloaded from https://www.dropbox.com/scl/fi/dlam6yqswcwu4x0dnooig/ipinyou.contest.dataset.7z?rlkey=h7q2ey4f7u8n0w7y8euo3zx20&e=1&dl=0.
 
-Unzip it and get the folder `ipinyou.contest.dataset`.
+Clone this repostitory. In the repostiroy, make the directory `~/make-ipinyou-data/Data`. 
+If you are using a remote desktop, move the data onto the remote desktop in the directory just created. I did this using: `scp -r "C:\Users\Benja\OneDrive\Documents\Imperial College London\Year 2\Dissertation\ipinyou.contest.dataset.7z" bdw124@athena.ma.ic.ac.uk:/home/ma/b/bdw124/make-ipinyou-data/Data/`
+
+Unzip it and get the folder `ipinyou.contest.dataset`. I did this by running `python3 -c "import py7zr; py7zr.SevenZipFile('ipinyou.contest.dataset.7z', 'r').extractall('.')"`.
 
 ### Step 1
 Update the symbolic link for the folder `ipinyou.contest.dataset` in `original-data`. The source of the data in the code below is `~/Data/ipinyou.contest.dataset`, this command creates `~/Project/make-ipinyou-data/original-data/ipinyou.contest.dataset` as a symbolic link pointing to `~/Data/ipinyou.contest.dataset`. 
 ```
-weinan@ZHANG:~/Project/make-ipinyou-data/original-data$ ln -sfn ~/Data/ipinyou.contest.dataset ipinyou.contest.dataset
+ln -sfn ~/Data/ipinyou.contest.dataset ipinyou.contest.dataset
 ```
 Under `make-ipinyou-data/original-data/ipinyou.contest.dataset` there should be the original dataset files like this:
 ```
@@ -33,6 +36,20 @@ weinan@ZHANG:~/Project/make-ipinyou-data$ ls
 2259  2821  3358  3427  all   Makefile  original-data  README.md
 ```
 Normally, we only do experiment for each campaign (e.g. `1458`). `all` is just the merge of all the campaigns. You can delete `all` if you think it is unuseful in your experiment.
+
+## Result: 
+Successful advertisers:
+1458
+3386
+3476
+3358
+3427
+
+Missing Advertisers: 
+2261
+2997
+2259
+2821
 
 ### Use of the data
 We use campaign 1458 as example here.
