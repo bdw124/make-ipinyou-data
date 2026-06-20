@@ -1,15 +1,15 @@
 make-ipinyou-data
 =================
 
-This project is to formalise the iPinYou RTB data into a standard format for further researches.
+This project is to formalise the iPinYou RTB data into a standard format for further researches. You can get the data in an extracted format from hugging space but some of the feature engineering already completed you may find to be insufficient. 
 
 ### Step 0
-The raw data of iPinYou (`ipinyou.contest.dataset.zip`) can be downloaded from [UCL website](http://bunwell.cs.ucl.ac.uk/ipinyou.contest.dataset.zip).
+The raw data of iPinYou (`ipinyou.contest.dataset.zip`) can be downloaded from https://pan.baidu.com/s/1kTwX2mF#list/path=%2F.
 
 Unzip it and get the folder `ipinyou.contest.dataset`.
 
 ### Step 1
-Update the soft link for the folder `ipinyou.contest.dataset` in `original-data`. 
+Update the symbolic link for the folder `ipinyou.contest.dataset` in `original-data`. The source of the data in the code below is `~/Data/ipinyou.contest.dataset`, this command creates `~/Project/make-ipinyou-data/original-data/ipinyou.contest.dataset` as a symbolic link pointing to `~/Data/ipinyou.contest.dataset`. 
 ```
 weinan@ZHANG:~/Project/make-ipinyou-data/original-data$ ln -sfn ~/Data/ipinyou.contest.dataset ipinyou.contest.dataset
 ```
