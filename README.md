@@ -4,7 +4,7 @@ make-ipinyou-data
 This project is to formalise the iPinYou RTB data into a standard format for further researches. You can get the data in an extracted format from hugging space but some of the feature engineering already completed you may find to be insufficient. 
 
 ### Step 0
-The raw data of iPinYou (`ipinyou.contest.dataset.zip`) can be downloaded from https://pan.baidu.com/s/1kTwX2mF#list/path=%2F.
+The raw data of iPinYou (`ipinyou.contest.dataset.zip`) can be downloaded from https://www.dropbox.com/scl/fi/dlam6yqswcwu4x0dnooig/ipinyou.contest.dataset.7z?rlkey=h7q2ey4f7u8n0w7y8euo3zx20&e=1&dl=0.
 
 Unzip it and get the folder `ipinyou.contest.dataset`.
 
